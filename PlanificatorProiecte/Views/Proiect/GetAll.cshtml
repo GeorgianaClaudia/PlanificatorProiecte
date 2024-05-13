@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PlanificatorProiecte.Models.Domain.Proiect>
+@{}
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-6">
+            <a class="btn btn-dark" href="/Proiect/Add">Adauga proiect</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-8">
+            <h3>Proiecte</h3>
+
+            <table class="table table-stripped table-bordered table-dark">
+                <thead>
+                    <tr>
+                        <th style=" width:20%">Nume proiect</th>
+                        <th>Descriere proiect</th>
+                        <th style=" width:25%">Actiune</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                @foreach(var item in Model)
+                {
+                    <tr>
+                        <td>@item.NumeProiect</td>
+                        <td>@item.Descriere</td>
+                        <td>
+                            
+                             <a class="btn btn-success float-left" href="/Proiect/Update?id=@item.Id">Modifica</a> |
+                             <a class="btn btn-danger float-right" onClick="return window.confirm('Doriti sa stergeti inregistrarea?')" href="/Proiect/Delete?id=@item.Id">Sterge</a>
+                        </td>
+                          
+
+
+                    </tr>
+                }
+                </tbody>
+            </table>
+
+            
+
+
+        </div>
+
+    </div>
+</div>
+

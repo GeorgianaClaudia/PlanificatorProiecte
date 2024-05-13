@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlanificatorProiecte</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <style>
+        a {
+            font-family:Verdana, Geneva, Tahoma, sans-serif
+        }
+    </style>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/VacationBlog.Web.styles.css" asp-append-version="true" />
+
+    <link href='https://cdn.jsdelivr.net/npm/froala-editor@latest/css/froala_editor.pkgd.min.css' rel='stylesheet' type='text/css' />
+
+    <script type='text/javascript' src='https://cdn.jsdelivr.net/npm/froala-editor@latest/js/froala_editor.pkgd.min.js'></script>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#"> PlanificatorProiecte</a>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a href="/Proiect/Add" class="nav-link">Proiecte</a>
+            </li>
+            <li class="nav-item">
+                <a href="/Angajat/Add" class="nav-link">Angajati</a>
+            </li>
+            <li class="nav-item active">
+                <a href="/StareAlocare/Add" class="nav-link">Stare alocare</a>
+            </li>
+
+            <li class="nav-item">
+                <a href="/Alocare/Add" class="nav-link">Alocare pe proiecte</a>
+            </li>
+
+        </ul>
+
+    </nav>
+    <div class="container">
+        @RenderBody()
+    </div>
+</body>
+</html>

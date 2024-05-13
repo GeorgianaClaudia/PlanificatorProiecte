@@ -1,0 +1,67 @@
+﻿@model PlanificatorProiecte.Models.Domain.Alocare
+@{}
+
+
+<div class="container pt-5">
+    <div class="row">
+    <div class="col-md-6">
+            <h3>Adauga o alocare noua</h3>
+        <form asp-action="Add" method="post">
+            <div class="form-group">
+               
+                <label asp-for="ProiectId">Proiect *</label>
+                <Select asp-for="ProiectId" asp-items="Model.ProiectList" class="form-control">
+                    <option value="">--select--</option>
+                </Select>
+                <span asp-validation-for="ProiectId" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                
+                <label asp-for="Nume">Descriere alocare *</label>
+                <input type="text" class="form-control" asp-for="Nume" />
+                <span asp-validation-for="Nume" class="text-danger"></span>
+            </div>
+
+                <div class="form-group">
+                   
+                    <label asp-for="AngajatID">Angajat *</label>
+                    <Select asp-for="AngajatID" asp-items="Model.AngajatList" class="form-control">
+                        <option value="">--select--</option>
+                    </Select>
+                    <span asp-validation-for="AngajatID" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Termen">Termen *</label>
+                    <input type="date" class="form-control" id="Termen" asp-for="Termen" />
+                    <span asp-validation-for="Termen" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                 
+                    <label asp-for="StareAlocareId">Status alocare *</label>
+                    <Select asp-for="StareAlocareId" asp-items="Model.StareAlocareList" class="form-control">
+                        <option value="">--select--</option>
+                    </Select>
+                    <span asp-validation-for="StareAlocareId" class="text-danger"></span>
+                </div>
+
+
+            @if (TempData["msg"] != null)
+            {
+                <div class="form-group">
+                    @TempData["msg"]
+                </div>
+            }
+            <div class="form-group pt-3">
+            <button type="submit" class="btn btn-dark">Salveaza</button>
+            <a href="/Alocare/GetAll" class="btn btn-primary">Lista</a>
+            </div>
+        </form>
+
+    </div>
+
+    </div>
+</div>
+
+

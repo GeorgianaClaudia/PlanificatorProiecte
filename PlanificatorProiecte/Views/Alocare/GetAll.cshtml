@@ -1,0 +1,91 @@
+﻿@model IEnumerable<PlanificatorProiecte.Models.Domain.Alocare>
+@{}
+
+<div class="container pt-5">
+    <div class="row">
+        <div class="col-md-12">
+            <a class="btn btn-dark" href="/Alocare/Add">Adauga alocare noua:</a>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h3>Alocari pe proiecte</h3>
+            <div class="col-md-12">
+                <form method="get" action="/Alocare/GetAll">
+                    <div class="form-row">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="searchTermAngajat">Cauta dupa Nume Angajat:</label>
+                                <input type="text" class="form-control" id="searchTermAngajat" name="searchTermAngajat" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label for="searchTermProiect">Cauta dupa Nume Proiect:</label>
+                                <input type="text" class="form-control" id="searchTermProiect" name="searchTermProiect" />
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <button type="submit" class="btn btn-primary">Cauta</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-4"></div> <!-- Adauga spatiu -->
+                </form>
+                <div class="mb-4"></div> <!-- Adauga spatiu -->
+            </div>
+            <table class="table table-stripped table-bordered table-dark">
+                <thead>
+                    <tr>
+                        
+                        <th>Proiect</th>
+                        <th>Descriere Alocare</th>
+                        <th>Angajat</th>
+                        <th>Termen de realizare</th>
+                        <th>Status alocare</th>
+                        
+
+                       
+                        <th style=" width:25%">Actiune</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.NumeProiect</td>
+                            <td>@item.Nume</td>
+                            <td>@item.NumeAngajat</td>
+                            <td>@item.Termen</td>
+                            <td>@item.NumeStareAlocare</td>
+                            <td>
+                                <a class="btn btn-success float-left" href="/Alocare/Update?id=@item.Id">Modifica</a> |
+                                <a class="btn btn-danger float-right" onClick="return window.confirm('Doriti sa stergeti inregistrarea?')" href="/Alocare/Delete?id=@item.Id">Sterge</a>
+                            </td>
+                        </tr>
+                    }
+                    @if (Model.Count() == 0)
+                    {
+                        <tr>
+                            <td colspan="6">Nu s-au gasit inregistrari.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+
+            
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="form-group">
+                <a href="/Alocare/DownloadExcel" class="btn btn-primary">Descarca Excel</a>
+            </div>
+        </div>
+
+      </div>
+      </div>
+
+     
